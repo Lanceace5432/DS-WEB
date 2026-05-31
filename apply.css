@@ -1,0 +1,147 @@
+/* ==========================================================================
+   REQUIREMENTS PAGE STYLES (apply.css)
+   ========================================================================== */
+
+body {
+    background-color: #f4f7fc; /* Soft grayish-blue tone matching the app canvas */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.requirements-wrapper {
+    max-width: 720px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* Header Elements Styling */
+.req-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.icon-badge {
+    width: 60px;
+    height: 60px;
+    background-color: #69b5ff; /* Light sky blue backdrop box */
+    color: #ffffff;
+    border-radius: 14px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.req-header h1 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #081b3a;
+    margin: 0 0 10px 0;
+}
+
+.req-header .subtitle {
+    font-size: 15px;
+    color: #6b7c96;
+    margin: 0;
+}
+
+/* White Card Content Box */
+.req-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* Extremely subtle premium frame shadow */
+}
+
+.req-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 40px;
+}
+
+.req-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+/* Checkmarks matching image_8a043f.png color rules */
+.check-icon {
+    font-size: 20px;
+    color: #3b82f6; 
+    margin-top: 3px;
+}
+
+.req-text h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #081b3a;
+    margin: 0 0 4px 0;
+}
+
+.req-text p {
+    font-size: 14px;
+    color: #5e6e85;
+    margin: 0;
+}
+
+/* Light Blue Callout Notice Box */
+.note-box {
+    background-color: #eaf5ff;
+    border: 1px solid #bce0ff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 35px;
+}
+
+.note-box p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #334d6e;
+    margin: 0;
+}
+
+/* Bottom Actions Control Rows */
+.action-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-back {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px;
+    border: 1px solid #d2dbec;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-back:hover {
+    background: #f8fafc;
+}
+
+.btn-continue {
+    flex: 1.5; /* Gives the main blue primary button a wider priority structure */
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #59a5f5; /* Light gradient blue accent from your primary checker button layout */
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-continue:hover {
+    background: #4294eb;
+}

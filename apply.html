@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyeBank - Loan Requirements</title>
+    <!-- Linking both styles to keep your BDO navbar consistent -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="apply.css">
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Your BDO Royal Blue Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-text">SkyeBank</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+            <li><a href="services.html" class="active"><i class="fa-solid fa-wallet"></i>Services</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main View Wrapper -->
+    <div class="requirements-wrapper">
+        
+        <!-- Dynamic Header Area -->
+        <div class="req-header">
+            <div class="icon-badge" id="req-icon-container">
+                <i class="fa-solid fa-car" id="req-icon"></i>
+            </div>
+            <h1 id="req-title">Car Loan Requirements</h1>
+            <p class="subtitle">Please ensure you meet the following requirements before proceeding</p>
+        </div>
+
+        <!-- The White Requirements Card Box -->
+        <div class="req-card">
+            <div class="req-list">
+                <!-- Item 1 -->
+                <div class="req-item">
+                    <i class="fa-regular fa-circle-check check-icon"></i>
+                    <div class="req-text">
+                        <h3>Minimum Monthly Income</h3>
+                        <p id="req-income">₱25,000 or above</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="req-item">
+                    <i class="fa-regular fa-circle-check check-icon"></i>
+                    <div class="req-text">
+                        <h3>Credit Score</h3>
+                        <p id="req-credit">650 or higher</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="req-item">
+                    <i class="fa-regular fa-circle-check check-icon"></i>
+                    <div class="req-text">
+                        <h3>Employment Tenure</h3>
+                        <p id="req-tenure">At least 6 months with current employer</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="req-item">
+                    <i class="fa-regular fa-circle-check check-icon"></i>
+                    <div class="req-text">
+                        <h3>Age Requirement</h3>
+                        <p id="req-age">21-65 years old</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="req-item">
+                    <i class="fa-regular fa-circle-check check-icon"></i>
+                    <div class="req-text">
+                        <h3>Required Documents</h3>
+                        <p id="req-docs">ID, Proof of Income, Employment Letter</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Light Blue Info Warning Box -->
+            <div class="note-box">
+                <p><strong>Note:</strong> Meeting these requirements does not guarantee loan approval. Final approval is subject to our complete eligibility assessment and verification process.</p>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="action-buttons">
+                <a href="services.html" class="btn-back">Back</a>
+                <button id="continueBtn" class="btn-continue">Continue to Eligibility Checker</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="apply.js"></script>
+</body>
+</html>
