@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyeBank - Eligibility Assessment</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assessment.css">
+
+    <style>
+        /* Small utility rule to hide non-active steps dynamically */
+        .step-card.hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+    <a href="index.html" class="logo-container">
+        <img src="images/SkyeBank Logo copy.webp" alt="SkyeBank Logo" class="logo-img">
+        <span class="logo-text">SkyeBank</span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="services.html"><i class="fas fa-wallet"></i> Services</a>
+    </nav>
+    </header>
+
+    <main class="assessment-section">
+        <div class="assessment-header">
+            <h1>Eligibility Assessment</h1>
+            <p id="step-tracker-text">Step 1 of 4</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar-track">
+                <div id="progress-bar-fill" style="width: 25%;"></div>
+            </div>
+            <div class="progress-labels">
+                <span>Start</span>
+                <span id="progress-percent-text">25% Complete</span>
+            </div>
+        </div>
+
+        <div class="assessment-container-card">
+
+            <div class="step-card" id="step-1">
+                <h2>What is your monthly income?</h2>
+                <p class="subtitle-text">Please enter your total monthly income before taxes</p>
+                
+                <div class="input-group">
+                    <label for="income-input">Monthly Income (₱)</label>
+                    <input type="number" id="income-input" placeholder="e.g., 25000">
+                </div>
+            </div>
+
+            <div class="step-card hidden" id="step-2">
+                <h2>What is your estimated credit score?</h2>
+                <p class="subtitle-text">Credit scores typically range between 300 and 850</p>
+                
+                <div class="input-group">
+                    <label for="credit-input">Credit Score</label>
+                    <input type="number" id="credit-input" placeholder="e.g., 700" min="300" max="850">
+                </div>
+            </div>
+
+            <div class="step-card hidden" id="step-3">
+                <h2>What is your employment status?</h2>
+                <p class="subtitle-text">Please select your current primary work setup from the choices below</p>
+                
+                <div class="input-group">
+                    <label for="employment-input">Employment Status</label>
+                    <select id="employment-input">
+                        <option value="" disabled selected>-- Choose an option --</option>
+                        <option value="unemployed">Unemployed</option>
+                        <option value="full-time">Full time Employee</option>
+                        <option value="part-time">Part time Employee</option>
+                        <option value="self-employed">Self Employed</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="step-card hidden" id="step-4">
+                <h2>What is your current age?</h2>
+                <p class="subtitle-text">Applicants must meet legal banking age brackets</p>
+                
+                <div class="input-group">
+                    <label for="age-input">Age (Years)</label>
+                    <input type="number" id="age-input" placeholder="e.g., 28">
+                </div>
+            </div>
+
+            <div class="step-card hidden" id="step-result">
+                <div class="result-display-box">
+                    <h2 id="result-title">Calculating Result...</h2>
+                    <p id="result-message" class="subtitle-text">Processing your assessment logs...</p>
+                </div>
+            </div>
+
+            <div class="button-group" id="wizard-navigation-controls">
+                <button type="button" class="back-btn" id="prev-btn">Back</button>
+                <button type="button" class="next-btn" id="next-btn">Next</button>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="assessment.js"></script>
+</body>
+</html>

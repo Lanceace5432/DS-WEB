@@ -1,0 +1,257 @@
+/* ==========================================================================
+   Global Navigation Header & Logo Fixes
+   ========================================================================== */
+
+/* ==========================================================================
+   UNIFIED BRAND HEADER & NAVIGATION STYLES
+   ========================================================================== */
+
+/* Main header row alignment */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+/* Logo layout structure */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+/* Force the logo image to stay consistently scaled */
+.logo-img {
+    height: 60px; 
+    width: auto;
+    object-fit: contain;
+}
+
+/* SkyeBank Typography styling */
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0b2545; /* Dark corporate navy blue */
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Right-aligned navigation list */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Nav links basic state */
+.nav-links a {
+    text-decoration: none;
+    color: #4a5568; /* Balanced slate text */
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease-in-out;
+}
+
+/* Sync icon color to parent link text */
+.nav-links a i {
+    color: #4a5568;
+    font-size: 1.1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+/* Complete synchronized color swap on hover */
+.nav-links a:hover, 
+.nav-links a:hover i {
+    color: #3b82f6; /* Interactive bright brand blue */
+}
+
+/* ==========================================================================
+   Form Component Overhauls (Inputs & Dropdowns)
+   ========================================================================== */
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: #0b2545;
+    font-size: 0.9rem;
+}
+
+.input-group input,
+.input-group select {
+    padding: 14px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    background-color: #ffffff;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #3b82f6;
+}
+
+/* ==========================================================================
+   Assessment Page Layout
+   ========================================================================== */
+
+.assessment-section {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.assessment-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.assessment-header h1 {
+    color: #0b2545;
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+#step-tracker-text {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Progress Bar Styling
+   ========================================================================== */
+
+.progress-container {
+    margin-bottom: 40px;
+}
+
+.progress-bar-track {
+    width: 100%;
+    height: 8px;
+    background-color: #eef4f8;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#progress-bar-fill {
+    height: 100%;
+    background-color: #3b82f6; /* Beautiful Blue */
+    transition: width 0.4s ease-in-out; /* Makes the bar move smoothly! */
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* ==========================================================================
+   Step Cards & Form Inputs
+   ========================================================================== */
+
+.assessment-container-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.step-card h2 {
+    color: #0b2545;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.subtitle-text {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+/* Modified selector chain to style both text inputs and the dropdown choice list */
+.input-group input, 
+.input-group select {
+    padding: 14px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    background-color: #ffffff; /* Ensures clean white inside choice elements */
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #3b82f6;
+}
+
+/* ==========================================================================
+   Wizard Navigation Buttons
+   ========================================================================== */
+
+.button-group {
+    display: flex;
+    gap: 16px;
+}
+
+.button-group button {
+    flex: 1;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.back-btn {
+    background-color: #ffffff;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+}
+
+.back-btn:hover {
+    background-color: #f8fafc;
+}
+
+.next-btn {
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+}
+
+.next-btn:hover {
+    background-color: #2563eb;
+}
+
+/* Result Box Specific Styles */
+.result-display-box {
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Hidden utility class mapping directly to your HTML hide mechanic */
+.step-card.hidden {
+    display: none !important;
+}

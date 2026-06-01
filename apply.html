@@ -14,15 +14,17 @@
 <body>
 
     <!-- Your BDO Royal Blue Navbar -->
-    <nav class="navbar">
-        <div class="logo">
-            <span class="logo-text">SkyeBank</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
-            <li><a href="services.html" class="active"><i class="fa-solid fa-wallet"></i>Services</a></li>
-        </ul>
+    <header class="main-header">
+    <a href="index.html" class="logo-container">
+        <img src="images/SkyeBank Logo copy.webp" alt="SkyeBank Logo" class="logo-img">
+        <span class="logo-text">SkyeBank</span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="services.html"><i class="fas fa-wallet"></i> Services</a>
     </nav>
+</header>
 
     <!-- Main View Wrapper -->
     <div class="requirements-wrapper">
@@ -93,7 +95,7 @@
             <!-- Navigation Buttons -->
             <div class="action-buttons">
                 <a href="services.html" class="btn-back">Back</a>
-                <button id="continueBtn" class="btn-continue">Continue to Eligibility Checker</button>
+                <a href="assessment.html" id="continue-checker-btn" class="continue-btn">Continue to Eligibility Checker</a>
             </div>
         </div>
     </div>

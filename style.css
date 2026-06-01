@@ -14,55 +14,76 @@ html {
     scroll-behavior: smooth;
 }
 
-/* NAVBAR */
-.navbar {
+/* ==========================================================================
+   UNIFIED BRAND HEADER & NAVIGATION STYLES
+   ========================================================================== */
+
+/* Main header row alignment */
+.main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 60px;
-    background: white;
-    border-bottom: 1px solid #e6e6e6;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
-.logo {
+/* Logo layout structure */
+.logo-container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    text-decoration: none;
 }
 
-.logo img {
-    width: 100px;
+/* Force the logo image to stay consistently scaled */
+.logo-img {
+    height: 60px; 
+    width: auto;
+    object-fit: contain;
 }
 
-.logo h2 {
-    font-size: 28px;
+/* SkyeBank Typography styling */
+.logo-text {
+    font-size: 1.5rem;
     font-weight: 700;
+    color: #0b2545; /* Dark corporate navy blue */
+    font-family: system-ui, -apple-system, sans-serif;
 }
 
+/* Right-aligned navigation list */
 .nav-links {
     display: flex;
-    gap: 40px;
-    list-style: none;
+    align-items: center;
+    gap: 24px;
 }
 
+/* Nav links basic state */
 .nav-links a {
     text-decoration: none;
-    color: #3d4a5d;
+    color: #4a5568; /* Balanced slate text */
     font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease-in-out;
 }
 
-.nav-links a:hover {
-    color: #4da3ff;
-}
-
-/* Add space between navbar icons and text */
+/* Sync icon color to parent link text */
 .nav-links a i {
-    margin-right: 8px; /* Pushes the text away from the icon slightly */
-    font-size: 16px;   /* Matches the icon size to your font nicely */
-    transition: 0.3s;  /* Keeps the smooth hover effect you built */
+    color: #4a5568;
+    font-size: 1.1rem;
+    transition: color 0.2s ease-in-out;
 }
 
-/* HERO */
+/* Complete synchronized color swap on hover */
+.nav-links a:hover, 
+.nav-links a:hover i {
+    color: #3b82f6; /* Interactive bright brand blue */
+}
+
+/* HERO SECTION */
 .hero {
     max-width: 1200px;
     margin: auto;
@@ -180,82 +201,7 @@ html {
     font-size: 14px;
 }
 
-/* Subtle lifted effect when the user hovers over a card */
-.feature-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-}
-
-.feature-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    background: #69b5ff; /* Matches your hero button color */
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-    margin-bottom: 25px;
-}
-
-.feature-card h3 {
-    font-size: 24px;
-    font-weight: 700;
-    color: #081b3a;
-    margin-bottom: 15px;
-}
-
-.feature-card p {
-    font-size: 15px;
-    line-height: 1.7;
-    color: #58677c;
-}
-
-/* Responsive design adjustments for smaller screens */
-@media (max-width: 992px) {
-    .feature-container {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-    
-    .features h2 {
-        font-size: 34px;
-        margin-bottom: 40px;
-    }
-}
-
-/* RESPONSIVE */
-@media(max-width: 992px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-content h1 {
-        font-size: 55px;
-    }
-    .feature-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media(max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
-    }
-    .hero-content h1 {
-        font-size: 42px;
-    }
-    .hero-content p {
-        font-size: 18px;
-    }
-    .features h2 {
-        font-size: 34px;
-    }
-}
-
-/*  WHY CHOOSE SKYEBANK SECTION STYLES*/
-
+/* WHY CHOOSE SKYEBANK SECTION STYLES */
 .features {
     max-width: 1200px;
     margin: 0 auto;
@@ -315,15 +261,33 @@ html {
     color: #58677c;
 }
 
-/* Responsive design adjustments */
+/* RESPONSIVE MEDIA QUERIES */
 @media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: 55px;
+    }
     .feature-container {
         grid-template-columns: 1fr;
         gap: 25px;
     }
-    
     .features h2 {
         font-size: 34px;
         margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 15px 20px;
+    }
+    .hero-content h1 {
+        font-size: 42px;
+    }
+    .hero-content p {
+        font-size: 18px;
     }
 }

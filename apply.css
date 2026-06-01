@@ -2,6 +2,76 @@
    REQUIREMENTS PAGE STYLES (apply.css)
    ========================================================================== */
 
+/* ==========================================================================
+   UNIFIED BRAND HEADER & NAVIGATION STYLES
+   ========================================================================== */
+
+/* Main header row alignment */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+/* Logo layout structure */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+/* Force the logo image to stay consistently scaled */
+.logo-img {
+    height: 60px; 
+    width: auto;
+    object-fit: contain;
+}
+
+/* SkyeBank Typography styling */
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0b2545; /* Dark corporate navy blue */
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Right-aligned navigation list */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Nav links basic state */
+.nav-links a {
+    text-decoration: none;
+    color: #4a5568; /* Balanced slate text */
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease-in-out;
+}
+
+/* Sync icon color to parent link text */
+.nav-links a i {
+    color: #4a5568;
+    font-size: 1.1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+/* Complete synchronized color swap on hover */
+.nav-links a:hover, 
+.nav-links a:hover i {
+    color: #3b82f6; /* Interactive bright brand blue */
+}
+
+/* PAGE CONTENT */
 body {
     background-color: #f4f7fc; /* Soft grayish-blue tone matching the app canvas */
     font-family: 'Poppins', sans-serif;
@@ -68,7 +138,7 @@ body {
     gap: 18px;
 }
 
-/* Checkmarks matching image_8a043f.png color rules */
+/* Checkmarks matching image color rules */
 .check-icon {
     font-size: 20px;
     color: #3b82f6; 
@@ -134,7 +204,7 @@ body {
     padding: 14px;
     border: none;
     border-radius: 10px;
-    background: #59a5f5; /* Light gradient blue accent from your primary checker button layout */
+    background: #59a5f5; /* Light gradient blue accent */
     color: #ffffff;
     font-size: 15px;
     font-weight: 600;
@@ -144,4 +214,15 @@ body {
 
 .btn-continue:hover {
     background: #4294eb;
+}
+
+/* Button utility mappings */
+.button-group button, .continue-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;      /* Removes the default underline */
+    display: inline-block;      /* Forces the <a> tag to respect padding and height */
+    text-align: center;
 }
