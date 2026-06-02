@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyeBank - Eligibility Assessment</title>
+    <title>SkyeBank - Business Loan Assessment</title>
     
+    <!-- FontAwesome for Navigation Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="assessment.css">
@@ -44,6 +45,7 @@
             </div>
         </div>
 
+        <!-- Step 1: Personal Info -->
         <div class="card step-card active" id="step1">
             <h2>Tell us about yourself</h2>
             
@@ -74,18 +76,19 @@
             </div>
 
             <div class="button-group">
-                <button class="btn btn-secondary" onclick="window.location.href='apply.html'">Back</button>
+                <button class="btn btn-secondary" onclick="window.location.href='apply-business.html'">Back</button>
                 <button class="btn btn-primary" onclick="nextStep(1)">Next</button>
             </div>
         </div>
 
+        <!-- Step 2: Income -->
         <div class="card step-card" id="step2">
             <h2>What is your monthly income?</h2>
             <p class="subtitle">Please enter your total monthly income before taxes.</p>
             
             <div class="input-group mt-xl">
                 <label for="monthlyIncome">Monthly Income (₱)</label>
-                <input type="number" id="monthlyIncome" placeholder="e.g., 25000">
+                <input type="number" id="monthlyIncome" placeholder="e.g., 250000">
             </div>
 
             <div class="button-group">
@@ -94,21 +97,22 @@
             </div>
         </div>
 
+        <!-- Step 3: Loan Details (BUSINESS LOAN) -->
         <div class="card step-card" id="step3">
             <h2>Loan Details</h2>
             
             <p style="margin-bottom: 1.5rem; color: var(--text-main); font-size: 0.95rem;">
-                <strong>Car Loan</strong> - Interest Rate: 12%
+                <strong>Business Loan</strong> - Interest Rate: 18%
             </p>
 
             <div class="input-group">
                 <label for="loanAmount">Loan Amount Requested (₱)</label>
-                <input type="number" id="loanAmount" placeholder="e.g., 50000" oninput="calculateLoan()">
+                <input type="number" id="loanAmount" placeholder="e.g., 15000000" oninput="calculateLoan()">
             </div>
 
             <div class="input-group">
                 <label for="monthsToPay">Months to Pay</label>
-                <input type="number" id="monthsToPay" placeholder="e.g., 15" oninput="calculateLoan()">
+                <input type="number" id="monthsToPay" placeholder="e.g., 60" oninput="calculateLoan()">
             </div>
 
             <div class="summary-box">
@@ -118,7 +122,7 @@
                     <span class="val-bold" id="sumLoanAmount">₱0.00</span>
                 </div>
                 <div class="summary-row">
-                    <span id="sumInterestLabel">Interest (12%):</span>
+                    <span id="sumInterestLabel">Interest (18%):</span>
                     <span class="val-bold" id="sumInterestAmount">₱0.00</span>
                 </div>
                 <hr>
@@ -138,9 +142,9 @@
                     <li>Age 21-65 years old</li>
                     <li>Credit Score ≥ 650</li>
                     <li>Employment Status ≠ Unemployed</li>
-                    <li id="dtiRequirement">Debt-to-Income Ratio ≤ 40%</li>
+                    <li id="dtiRequirement">Debt-to-Income Ratio ≤ 50%</li>
                     <li id="maxMonthsReq">Maximum Months to Pay: 60</li>
-                    <li id="maxLoanReq">Maximum Loan Requested: ₱5,000,000</li>
+                    <li id="maxLoanReq">Maximum Loan Requested: ₱15,000,000</li>
                 </ul>
             </div>
 
@@ -150,12 +154,14 @@
             </div>
         </div>
 
+        <!-- Step 4: Documents -->
         <div class="card step-card" id="step4">
             <h2>Required Documents</h2>
             <p class="subtitle">Please ensure you have the following documents ready for your application.</p>
             
             <div class="checklist" id="documentChecklist">
-                </div>
+                <!-- Injected via JS -->
+            </div>
 
             <div class="application-summary-box">
                 <h3>Application Summary</h3>
@@ -174,6 +180,7 @@
             </div>
         </div>
 
+        <!-- Loading Screen -->
         <div class="loading-screen" id="loadingScreen">
             <div class="loading-icon-container">
                 <img src="images/SkyeBank Logo copy.webp" alt="SkyeBank Logo" class="floating-logo">
@@ -198,6 +205,7 @@
 
     </main>
 
-    <script src="assessment.js"></script>
+    <!-- Be sure to point this to the correct JS file -->
+    <script src="business-assessment.js"></script>
 </body>
 </html>

@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkyeBank - Services</title>
 
-    <!-- 1. Global styles (keeps your navbar, fonts, and body background working) -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- 2. Page-specific styles (for your new rectangle loan cards) -->
     <link rel="stylesheet" href="services.css">
 
-    <!-- Google Font & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
@@ -19,46 +16,46 @@
 <body>
 
     <header class="main-header">
-    <a href="index.html" class="logo-container">
-        <img src="images/SkyeBank Logo copy.webp" alt="SkyeBank Logo" class="logo-img">
-        <span class="logo-text">SkyeBank</span>
-    </a>
+        <a href="index.html" class="logo-container">
+            <img src="images/SkyeBank Logo copy.webp" alt="SkyeBank Logo" class="logo-img">
+            <span class="logo-text">SkyeBank</span>
+        </a>
 
-    <nav class="nav-links">
-        <a href="index.html"><i class="fas fa-home"></i> Home</a>
-        <a href="services.html"><i class="fas fa-wallet"></i> Services</a>
-    </nav>
-</header>
+        <nav class="nav-links">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="services.html"><i class="fas fa-wallet"></i> Services</a>
+        </nav>
+    </header>
 
     <section id="services-section" class="services-section active">
         <h2>Choose Your Loan Type</h2>
-        <div class="loan-container">
+       
+       <div class="loan-container">
+            
             <div class="loan-card">
                 <img src="images/Car Loan.webp" alt="Car Loan">
                 <h3>Car Loan</h3>
                 <p>Own your dream vehicle with affordable monthly payments and quick approval.</p>
-                <a href="apply.html?type=car" class="apply-btn">Apply Now</a>
-                <button class="learn-btn">Learn More</button>
+                <a href="apply.html" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
             </div>
 
             <div class="loan-card">
                 <img src="images/Home Loan.webp" alt="Housing Loan">
                 <h3>Housing Loan</h3>
                 <p>Build or purchase your dream home with flexible financing options.</p>
-               <a href="apply.html?type=housing" class="apply-btn">Apply Now</a>
-                <a href="car-info.html" class="learn-btn">Learn More</a>
+                <a href="apply-housing.html" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
             </div>
 
             <div class="loan-card">
                 <img src="images/Business Loan.webp" alt="Business Loan">
                 <h3>Business Loan</h3>
                 <p>Expand your business operations with funding tailored to your goals.</p>
-                <a href="apply.html?type=business" class="apply-btn">Apply Now</a>
-                <button class="learn-btn">Learn More</button>
+                <a href="apply-business.html" class="apply-btn" onclick="event.stopPropagation();">Apply Now</a>
             </div>
+            
         </div>
-      </section>
+    </section>
  
-    <script src="script.js"></script>
+    <script src="services.js"></script>
 </body>
 </html>

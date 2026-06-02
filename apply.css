@@ -5,19 +5,22 @@
 /* ==========================================================================
    UNIFIED BRAND HEADER & NAVIGATION STYLES
    ========================================================================== */
-
-/* Main header row alignment */
 .main-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
-    padding: 15px 40px;
+    
+    /* THE FIX: 0px on top and bottom, 8% on the sides */
+    padding: 0 17%; 
+    
+    /* Optional: You can force a strict height to ensure it stays slim */
+    height: 70px; 
+    
     background-color: #ffffff;
     border-bottom: 1px solid #e2e8f0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
-/* Logo layout structure */
 .logo-container {
     display: flex;
     align-items: center;
@@ -25,32 +28,28 @@
     text-decoration: none;
 }
 
-/* Force the logo image to stay consistently scaled */
 .logo-img {
-    height: 60px; 
+    height: 100px; 
     width: auto;
     object-fit: contain;
 }
 
-/* SkyeBank Typography styling */
 .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #0b2545; /* Dark corporate navy blue */
+    color: #0b2545; 
     font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* Right-aligned navigation list */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 70px;
 }
 
-/* Nav links basic state */
 .nav-links a {
     text-decoration: none;
-    color: #4a5568; /* Balanced slate text */
+    color: #4a5568; 
     font-weight: 500;
     display: inline-flex;
     align-items: center;
@@ -58,34 +57,40 @@
     transition: color 0.2s ease-in-out;
 }
 
-/* Sync icon color to parent link text */
 .nav-links a i {
     color: #4a5568;
     font-size: 1.1rem;
     transition: color 0.2s ease-in-out;
 }
 
-/* Complete synchronized color swap on hover */
 .nav-links a:hover, 
 .nav-links a:hover i {
-    color: #3b82f6; /* Interactive bright brand blue */
+    color: #3b82f6; 
 }
 
-/* PAGE CONTENT */
+/* ==========================================================================
+   PAGE CONTENT & ANIMATION
+   ========================================================================== */
 body {
-    background-color: #f4f7fc; /* Soft grayish-blue tone matching the app canvas */
+    background-color: #f4f7fc; 
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
 }
 
+/* This adds the smooth 0.3s Assessment fade-in to the entire block */
 .requirements-wrapper {
     max-width: 720px;
     margin: 60px auto;
     padding: 0 20px;
+    animation: fadeIn 0.3s ease-in-out; /* Matches assessment.css */
 }
 
-/* Header Elements Styling */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .req-header {
     text-align: center;
     margin-bottom: 35px;
@@ -94,7 +99,7 @@ body {
 .icon-badge {
     width: 60px;
     height: 60px;
-    background-color: #69b5ff; /* Light sky blue backdrop box */
+    background-color: #69b5ff; 
     color: #ffffff;
     border-radius: 14px;
     display: inline-flex;
@@ -117,12 +122,11 @@ body {
     margin: 0;
 }
 
-/* White Card Content Box */
 .req-card {
     background: #ffffff;
     border-radius: 16px;
     padding: 40px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* Extremely subtle premium frame shadow */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); 
 }
 
 .req-list {
@@ -138,7 +142,6 @@ body {
     gap: 18px;
 }
 
-/* Checkmarks matching image color rules */
 .check-icon {
     font-size: 20px;
     color: #3b82f6; 
@@ -158,7 +161,6 @@ body {
     margin: 0;
 }
 
-/* Light Blue Callout Notice Box */
 .note-box {
     background-color: #eaf5ff;
     border: 1px solid #bce0ff;
@@ -174,7 +176,9 @@ body {
     margin: 0;
 }
 
-/* Bottom Actions Control Rows */
+/* ==========================================================================
+   NAVIGATION BUTTONS
+   ========================================================================== */
 .action-buttons {
     display: flex;
     gap: 20px;
@@ -184,13 +188,13 @@ body {
     flex: 1;
     text-align: center;
     text-decoration: none;
-    padding: 14px;
+    padding: 16px; /* Matched to the taller Apply Now button */
     border: 1px solid #d2dbec;
-    border-radius: 10px;
+    border-radius: 8px; /* Sharper corners */
     background: #ffffff;
-    color: #000000;
-    font-size: 15px;
-    font-weight: 600;
+    color: #081b3a; 
+    font-size: 16px;
+    font-weight: 700; /* Bolder letters */
     cursor: pointer;
     transition: background 0.2s ease;
 }
@@ -200,29 +204,32 @@ body {
 }
 
 .btn-continue {
-    flex: 1.5; /* Gives the main blue primary button a wider priority structure */
-    padding: 14px;
+    flex: 1.5; 
+    padding: 16px; /* Matched to the taller Apply Now button */
     border: none;
-    border-radius: 10px;
-    background: #59a5f5; /* Light gradient blue accent */
+    border-radius: 8px; /* Sharper corners */
+    background: #0073e6; /* THE FIX: The deep Apply Now Blue */
     color: #ffffff;
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700; /* THE FIX: Bolder letters */
     cursor: pointer;
     transition: background 0.2s ease;
+    text-decoration: none;
+    text-align: center;
 }
 
 .btn-continue:hover {
-    background: #4294eb;
+    background: #005bb8; /* THE FIX: The dark Apply Now hover blue */
 }
 
-/* Button utility mappings */
+/* Optional safety utility class - keep this if it was already there */
 .button-group button, .continue-btn {
-    background-color: #007bff;
+    background-color: #0073e6;
     color: white;
-    padding: 12px 24px;
+    padding: 16px 24px;
     border-radius: 8px;
-    text-decoration: none;      /* Removes the default underline */
-    display: inline-block;      /* Forces the <a> tag to respect padding and height */
+    text-decoration: none;      
+    display: inline-block;      
     text-align: center;
+    font-weight: 500;
 }

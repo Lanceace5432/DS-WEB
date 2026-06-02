@@ -2,10 +2,10 @@
 // Global State & Configurations
 // ==========================================================================
 
-// Config holds the max constraints for the evaluation engine
 const LOAN_CONFIG = {
-    Housing: { interestRate: 0.15, maxDTI: 30, maxMonths: 120, maxLoan: 10000000, docs: ['Government-Issued ID', 'Proof of Income', 'Proof of Residency', 'House Title', 'House Insurance'] },
+    Housing: { interestRate: 0.15, maxDTI: 30, maxMonths: 120, maxLoan: 10000000, docs: ['Government-Issued ID', 'Proof of Income', 'Proof of Residency', 'Collateral House Title', 'House Insurance'] },
     Car: { interestRate: 0.12, maxDTI: 40, maxMonths: 60, maxLoan: 5000000, docs: ['Government-Issued ID', 'Proof of Income', 'Proof of Residency', 'Vehicle Information', 'Proof of Insurance'] },
+    // Business Loan configuration aligned with your new parameters
     Business: { interestRate: 0.18, maxDTI: 50, maxMonths: 60, maxLoan: 15000000, docs: ['Government-Issued ID', 'Proof of Income', 'Proof of Residency', 'Business Location', 'Business Plan'] }
 };
 
@@ -16,7 +16,7 @@ const appState = {
     employment: '',
     creditScore: 0,
     monthlyIncome: 0,
-    loanType: 'Car', // Locked to Car Loan for this specific page
+    loanType: 'Business', // LOCKED TO BUSINESS LOAN
     loanAmount: 0,
     monthsToPay: 0,
     totalLoan: 0,
@@ -34,15 +34,12 @@ const progressPercent = document.getElementById('progress-percent');
 // ==========================================================================
 
 function nextStep(currentStep) {
-    // Run validation sequence before allowing transition
     if (!validateStepInputs(currentStep)) return;
 
-    // If moving to step 4, generate the dynamic summary and document lists first
     if (currentStep === 3) {
         populateStep4Summary();
     }
 
-    // Execute step transition
     document.getElementById(`step${currentStep}`).classList.remove('active');
     document.getElementById(`step${currentStep + 1}`).classList.add('active');
     updateProgressTrack(currentStep + 1);
@@ -89,8 +86,6 @@ function validateStepInputs(step) {
         appState.loanAmount = parseFloat(document.getElementById('loanAmount').value);
         appState.monthsToPay = parseInt(document.getElementById('monthsToPay').value, 10);
         
-        // We only block if they input 0 or leave it blank. 
-        // Max limit evaluation now happens at the end.
         if (isNaN(appState.loanAmount) || appState.loanAmount <= 0) { 
             alert("Please enter a valid loan amount."); return false; 
         }
@@ -123,7 +118,6 @@ function calculateLoan() {
     appState.totalLoan = appState.loanAmount + interestAmount;
     appState.monthlyPayment = (appState.monthsToPay > 0) ? (appState.totalLoan / appState.monthsToPay) : 0;
 
-    // Project values instantly into the Step 3 UI
     document.getElementById('sumLoanAmount').innerText = formatCurrency(appState.loanAmount);
     document.getElementById('sumInterestAmount').innerText = formatCurrency(interestAmount);
     document.getElementById('sumTotalLoan').innerText = formatCurrency(appState.totalLoan);
@@ -133,7 +127,6 @@ function calculateLoan() {
 function populateStep4Summary() {
     const docs = LOAN_CONFIG[appState.loanType].docs;
     
-    // Inject INTERACTIVE checkboxes based on loan type using <label> tags
     const checklistHTML = docs.map((doc, index) => `
         <label class="checklist-item">
             <input type="checkbox" class="doc-checkbox" value="${doc}">
@@ -143,7 +136,6 @@ function populateStep4Summary() {
     `).join('');
     document.getElementById('documentChecklist').innerHTML = checklistHTML;
 
-    // Fill application summary sheet
     document.getElementById('appFullName').innerText = appState.fullName;
     document.getElementById('appAge').innerText = appState.age;
     document.getElementById('appEmployment').innerText = appState.employment;
@@ -158,25 +150,21 @@ function populateStep4Summary() {
 // ==========================================================================
 
 function processAssessment() {
-    // 1. Calculate final DTI before grading
     appState.dti = (appState.monthlyPayment / appState.monthlyIncome) * 100;
     const config = LOAN_CONFIG[appState.loanType];
 
-    // 2. Hide operational elements, initiate smooth loading simulation
     document.getElementById('progress-header').style.display = 'none';
     document.getElementById('step4').classList.remove('active');
     
     const loadingScreen = document.getElementById('loadingScreen');
-    loadingScreen.classList.add('show'); // Triggers fade-in CSS
+    loadingScreen.classList.add('show'); 
 
-    // 3. Evaluate parameters
     let reasons = [];
     
     if (appState.age < 21 || appState.age > 65) reasons.push("Your age must be between 21 and 65 years old.");
     if (appState.creditScore < 650) reasons.push(`Credit evaluation (${appState.creditScore}) is lower than the required minimum of 650.`);
     if (appState.employment === 'Unemployed') reasons.push("Active professional status required (Must not be unemployed).");
     
-    // Evaluate Loan Amount and Duration Max Limits
     if (appState.loanAmount > config.maxLoan) {
         reasons.push(`The requested loan amount (${formatCurrency(appState.loanAmount)}) exceeds the maximum allowed limit of ${formatCurrency(config.maxLoan)} for a ${appState.loanType} Loan.`);
     }
@@ -186,13 +174,11 @@ function processAssessment() {
 
     if (appState.dti > config.maxDTI) reasons.push(`Debt-to-Income ratio (${appState.dti.toFixed(1)}%) exceeds the maximum allowed limit (${config.maxDTI}%).`);
     
-    // Evaluate Checklist Documents
     const allDocsChecked = Array.from(document.querySelectorAll('.doc-checkbox')).every(cb => cb.checked);
     if (!allDocsChecked) {
         reasons.push("You must have all required documents ready to be eligible for a loan.");
     }
 
-    // 4. Simulate Steps Sequence (UI Updates)
     const steps = document.querySelectorAll('#loadingStepsList li');
     const dots = document.querySelectorAll('.loading-dots .dot');
     
@@ -210,7 +196,6 @@ function processAssessment() {
         dots[2].classList.add('active');
     }, 3000);
 
-    // 5. Fade out loader and Fade in Results after 4.5s
     setTimeout(() => {
         loadingScreen.classList.remove('show'); 
         

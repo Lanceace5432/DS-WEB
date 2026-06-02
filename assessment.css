@@ -1,121 +1,113 @@
 /* ==========================================================================
-   Global Navigation Header & Logo Fixes
+   CSS Variables (Design Tokens)
    ========================================================================== */
-
-/* ==========================================================================
-   UNIFIED BRAND HEADER & NAVIGATION STYLES
-   ========================================================================== */
-
-/* Main header row alignment */
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+:root {
+    --primary-blue: #0073e6;
+    --primary-hover: #005bb8;
+    --navy: #0B2D5C;
+    --navy-text: #0b2545;
+    --bg-gray: #F5F7FA;
+    --white: #FFFFFF;
+    --text-main: #374151;
+    --text-muted: #64748b;
+    --border-color: #E2E8F0;
+    --border-light: #eef4f8;
+    --success-green: #10B981;
+    --error-red: #EF4444;
 }
 
-/* Logo layout structure */
-.logo-container {
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-gray);
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Navigation Bar Styles
+   ========================================================================== */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #E2E8F0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    
+    /* THE FIX: Added strict height here to ensure it stays slim */
+    height: 70px; 
+}
+
+.nav-container {
+    /* THE FIX: 0px on top and bottom, 17% on the sides */
+    padding: 0 17%; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    height: 100%; /* Fills the 70px navbar */
+}
+
+.logo {
     display: flex;
     align-items: center;
     gap: 12px;
     text-decoration: none;
 }
 
-/* Force the logo image to stay consistently scaled */
 .logo-img {
-    height: 60px; 
+    /* THE FIX: Updated to your requested 100px */
+    height: 100px; 
     width: auto;
     object-fit: contain;
 }
 
-/* SkyeBank Typography styling */
 .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #0b2545; /* Dark corporate navy blue */
-    font-family: system-ui, -apple-system, sans-serif;
+    color: #0b2545;
 }
 
-/* Right-aligned navigation list */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 24px;
+    /* THE FIX: Exact gap spacing applied */
+    gap: 70px; 
 }
 
-/* Nav links basic state */
 .nav-links a {
     text-decoration: none;
-    color: #4a5568; /* Balanced slate text */
+    color: #4a5568; 
     font-weight: 500;
+    font-size: 1rem;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 8px; 
     transition: color 0.2s ease-in-out;
 }
 
-/* Sync icon color to parent link text */
 .nav-links a i {
-    color: #4a5568;
     font-size: 1.1rem;
     transition: color 0.2s ease-in-out;
 }
 
-/* Complete synchronized color swap on hover */
 .nav-links a:hover, 
 .nav-links a:hover i {
-    color: #3b82f6; /* Interactive bright brand blue */
+    color: #3B82F6;
 }
-
-/* ==========================================================================
-   Form Component Overhauls (Inputs & Dropdowns)
-   ========================================================================== */
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 20px;
-    text-align: left;
-}
-
-.input-group label {
-    font-weight: 600;
-    color: #0b2545;
-    font-size: 0.9rem;
-}
-
-.input-group input,
-.input-group select {
-    padding: 14px 16px;
-    border: 2px solid #e2e8f0;
-    border-radius: 8px;
-    font-size: 1rem;
-    outline: none;
-    background-color: #ffffff;
-    width: 100%;
-    box-sizing: border-box;
-    transition: border-color 0.2s ease;
-}
-
-.input-group input:focus,
-.input-group select:focus {
-    border-color: #3b82f6;
-}
-
 /* ==========================================================================
    Assessment Page Layout
    ========================================================================== */
-
-.assessment-section {
+.main-container {
     max-width: 600px;
     margin: 60px auto;
     padding: 0 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .assessment-header {
@@ -124,36 +116,36 @@
 }
 
 .assessment-header h1 {
-    color: #0b2545;
+    color: var(--navy-text);
     font-size: 2rem;
     margin-bottom: 8px;
 }
 
-#step-tracker-text {
-    color: #666;
+#step-indicator {
+    color: var(--text-muted);
     font-size: 0.95rem;
 }
 
 /* ==========================================================================
    Progress Bar Styling
    ========================================================================== */
-
 .progress-container {
     margin-bottom: 40px;
+    width: 100%;
 }
 
-.progress-bar-track {
+.progress-bar-bg {
     width: 100%;
     height: 8px;
-    background-color: #eef4f8;
+    background-color: var(--border-light);
     border-radius: 4px;
     overflow: hidden;
 }
 
-#progress-bar-fill {
+.progress-bar-fill {
     height: 100%;
-    background-color: #3b82f6; /* Beautiful Blue */
-    transition: width 0.4s ease-in-out; /* Makes the bar move smoothly! */
+    background-color: var(--primary-blue);
+    transition: width 0.4s ease-in-out;
 }
 
 .progress-labels {
@@ -164,58 +156,94 @@
     color: #888;
 }
 
-/* ==========================================================================
-   Step Cards & Form Inputs
-   ========================================================================== */
+.progress-percent {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
 
-.assessment-container-card {
-    background-color: #ffffff;
+/* ==========================================================================
+   Step Cards
+   ========================================================================== */
+.card {
+    background-color: var(--white);
     border-radius: 16px;
     padding: 40px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: none; 
 }
 
-.step-card h2 {
-    color: #0b2545;
+.card.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card h2 {
+    color: var(--navy-text);
     font-size: 1.5rem;
     margin-bottom: 8px;
 }
 
-.subtitle-text {
-    color: #666;
+.subtitle {
+    color: var(--text-muted);
     font-size: 0.95rem;
     margin-bottom: 24px;
     line-height: 1.5;
 }
 
-/* Modified selector chain to style both text inputs and the dropdown choice list */
-.input-group input, 
+/* ==========================================================================
+   Form Component Overhauls (Inputs & Dropdowns)
+   ========================================================================== */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+    margin-bottom: 1.25rem;
+    text-align: left;
+}
+
+.mt-xl { margin-top: 2rem; }
+
+.input-group label {
+    font-weight: 600;
+    color: var(--navy-text);
+    font-size: 0.9rem;
+}
+
+.input-group input,
 .input-group select {
     padding: 14px 16px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--border-color);
     border-radius: 8px;
     font-size: 1rem;
     outline: none;
-    background-color: #ffffff; /* Ensures clean white inside choice elements */
+    background-color: var(--white);
+    width: 100%;
+    box-sizing: border-box;
     cursor: pointer;
     transition: border-color 0.2s ease;
 }
 
 .input-group input:focus,
 .input-group select:focus {
-    border-color: #3b82f6;
+    border-color: var(--primary-blue);
 }
 
 /* ==========================================================================
    Wizard Navigation Buttons
    ========================================================================== */
-
 .button-group {
     display: flex;
     gap: 16px;
+    margin-top: 2rem;
 }
 
-.button-group button {
+.btn {
     flex: 1;
     padding: 14px;
     font-size: 1rem;
@@ -223,35 +251,257 @@
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.2s ease;
-}
-
-.back-btn {
-    background-color: #ffffff;
-    color: #64748b;
-    border: 1px solid #e2e8f0;
-}
-
-.back-btn:hover {
-    background-color: #f8fafc;
-}
-
-.next-btn {
-    background-color: #3b82f6;
-    color: #ffffff;
     border: none;
-}
-
-.next-btn:hover {
-    background-color: #2563eb;
-}
-
-/* Result Box Specific Styles */
-.result-display-box {
     text-align: center;
-    padding: 20px 0;
 }
 
-/* Hidden utility class mapping directly to your HTML hide mechanic */
-.step-card.hidden {
-    display: none !important;
+.btn-secondary {
+    background-color: var(--white);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
 }
+
+.btn-secondary:hover:not(.disabled) {
+    background-color: #f8fafc;
+    color: var(--text-main);
+}
+
+.btn-secondary.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+/* ==========================================================================
+   Summary & Requirements (Steps 3 & 4)
+   ========================================================================== */
+.summary-box, .application-summary-box {
+    background-color: #F0F5FF;
+    border: 1px solid #D6E4FF;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.summary-box h3, .application-summary-box h3 {
+    color: var(--navy);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.summary-box hr {
+    border: none;
+    border-top: 1px solid #D6E4FF;
+    margin: 0.75rem 0;
+}
+
+.val-bold { font-weight: 600; color: var(--text-main); text-align: right;}
+.val-blue { font-weight: 700; color: var(--primary-blue); text-align: right;}
+
+.requirements-box {
+    background-color: #F9FAFB;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 0.85rem;
+}
+
+.requirements-box h4 { margin-bottom: 0.5rem; color: var(--text-muted); }
+.requirements-box ul { list-style: none; color: var(--text-muted); }
+.requirements-box ul li::before { content: "•"; color: var(--text-muted); font-weight: bold; display: inline-block; width: 1em; }
+
+/* ==========================================================================
+   Checklist (Step 4) - INTERACTIVE
+   ========================================================================== */
+.checklist-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid var(--border-color, #E2E8F0);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    background-color: var(--white);
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.checklist-item:hover {
+    border-color: var(--primary-blue);
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.05);
+}
+
+.checklist-item input[type="checkbox"] { display: none; }
+
+.checklist-item .check-box {
+    width: 22px;
+    height: 22px;
+    background-color: var(--white);
+    border: 2px solid var(--text-muted);
+    border-radius: 4px;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.checklist-item input[type="checkbox"]:checked + .check-box {
+    background-color: var(--text-main);
+    border-color: var(--text-main);
+}
+
+.checklist-item input[type="checkbox"]:checked + .check-box::after {
+    content: "✓";
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.checklist-item span { font-size: 0.95rem; color: var(--text-main); }
+
+/* ==========================================================================
+   Loading Screen & Animations
+   ========================================================================== */
+.loading-screen {
+    display: none;
+    text-align: center;
+    padding: 4rem 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.loading-screen.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Increased Logo Size Here */
+.loading-icon-container {
+    margin-top: 30px; /* Pushes the logo down */
+    margin-left: auto; /* Centers it */
+    margin-right: auto; /* Centers it */
+    margin-bottom: -30px; /* Pulls the logo closer to the text below */
+    
+    width: 200px; 
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating-logo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+.loading-title { color: var(--navy); margin-bottom: 0.5rem;}
+.loading-subtitle { color: var(--text-muted); margin-bottom: 2rem;}
+
+.loading-dots { display: flex; justify-content: center; gap: 8px; margin-bottom: 2rem; }
+.dot { width: 10px; height: 10px; background-color: #D1D5DB; border-radius: 50%; }
+
+.dot.active { 
+    background-color: var(--primary-blue); 
+    animation: pulse 0.8s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(1.3); opacity: 0.6; }
+}
+
+.loading-steps {
+    list-style: none;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+.loading-steps li { margin-bottom: 0.5rem; transition: all 0.3s ease; }
+.loading-steps li.active { color: var(--primary-blue); font-weight: 500; }
+.loading-steps li.active::before { content: "● "; }
+
+/* ==========================================================================
+   Results Screen
+   ========================================================================== */
+.results-screen { 
+    display: none; 
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.results-screen.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.result-display-box { text-align: center; padding: 20px 0; }
+
+/* Increased Icon Size Here */
+.result-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+.result-icon.success { background-color: #D1FAE5; color: var(--success-green); border: 2px solid var(--success-green); }
+.result-icon.error { background-color: #FEE2E2; color: var(--error-red); border: 2px solid var(--error-red); }
+
+.result-header { text-align: center; margin-bottom: 2rem; }
+.result-header h1 { color: var(--navy); margin-bottom: 0.5rem;}
+.result-header p { color: var(--text-muted); font-size: 0.95rem; }
+
+.result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+.result-item { display: flex; flex-direction: column; }
+.result-item span:first-child { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+.result-item span:last-child { font-weight: 600; color: var(--navy); text-align: left;}
+.result-item span.blue-text { color: var(--primary-blue); font-weight: 700; text-align: left; }
+
+.dti-indicator { margin-bottom: 2rem; }
+.dti-header { display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--text-muted); }
+.dti-val { font-weight: 700; color: var(--navy); }
+.dti-bar-bg { height: 8px; background-color: var(--border-color); border-radius: 4px; overflow: hidden; margin-bottom: 0.25rem; }
+.dti-bar-fill { height: 100%; background-color: var(--success-green); width: 0%; }
+.dti-bar-fill.danger { background-color: var(--error-red); }
+.dti-max { font-size: 0.75rem; color: var(--text-muted); }
+
+.rejection-list {
+    background-color: #FEF2F2;
+    border: 1px solid #FECACA;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+.rejection-list li { margin-left: 1.5rem; color: var(--error-red); font-size: 0.9rem; margin-bottom: 0.25rem; }
