@@ -25,7 +25,7 @@ html {
     align-items: center;
     
     /* THE FIX: 0px on top and bottom, 8% on the sides */
-    padding: 0 17%; 
+    padding: 0 8%; 
     
     /* Optional: You can force a strict height to ensure it stays slim */
     height: 70px; 
@@ -39,7 +39,7 @@ html {
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 1px;
     text-decoration: none;
 }
 
@@ -56,6 +56,7 @@ html {
     font-weight: 700;
     color: #0b2545; /* Dark corporate navy blue */
     font-family: system-ui, -apple-system, sans-serif;
+    margin-left: -14px;
 }
 
 /* Right-aligned navigation list */

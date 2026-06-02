@@ -32,37 +32,34 @@ body {
 /* ==========================================================================
    Navigation Bar Styles
    ========================================================================== */
-.navbar {
+.main-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    
+    /* Matched to your style.css */
+    padding: 0 8%; 
+    height: 70px; 
+    
     background-color: #ffffff;
-    border-bottom: 1px solid #E2E8F0;
+    border-bottom: 1px solid #e2e8f0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    
+    /* Keeps the assessment header sticky at the top of the screen */
     position: sticky;
     top: 0;
     z-index: 100;
     width: 100%;
-    
-    /* THE FIX: Added strict height here to ensure it stays slim */
-    height: 70px; 
 }
 
-.nav-container {
-    /* THE FIX: 0px on top and bottom, 17% on the sides */
-    padding: 0 17%; 
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    height: 100%; /* Fills the 70px navbar */
-}
-
-.logo {
+.logo-container {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 1px; /* Brings logo and text together */
     text-decoration: none;
 }
 
 .logo-img {
-    /* THE FIX: Updated to your requested 100px */
     height: 100px; 
     width: auto;
     object-fit: contain;
@@ -71,13 +68,14 @@ body {
 .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #0b2545;
+    color: #0b2545; /* Dark corporate navy blue */
+    font-family: system-ui, -apple-system, sans-serif;
+    margin-left: -14px; /* Pulls the text backwards into the image's invisible space */
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    /* THE FIX: Exact gap spacing applied */
     gap: 70px; 
 }
 
@@ -99,8 +97,9 @@ body {
 
 .nav-links a:hover, 
 .nav-links a:hover i {
-    color: #3B82F6;
+    color: var(--primary-blue);
 }
+
 /* ==========================================================================
    Assessment Page Layout
    ========================================================================== */

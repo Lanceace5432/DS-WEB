@@ -7,11 +7,26 @@ A web applicaton that helps the decision-support application that is designed to
 ```
 DS-WEB/
 ├── README.md
-├── index.html
-├── style.css
-├── script.js
 └── images/
     └── SkyeBank Logo copy.webp
+├── index.html (landing page)
+├── style.css  
+├── script.js
+└── services.html (services)
+└── services.css
+└── services.js
+└── apply.html (car loan info)
+└── apply-business.html (apply loan info)
+└── apply-housing.htmml (housing loan info)
+└── apply.css (design for all application)
+└── assessment.html (car loan assessment)
+└── business-assessment.html (business loan assessment)
+└── housing-assessment.html (housing loan assessment)
+└── assessment.js (car loan logic)
+└── business-assessment.js (business loan logic)
+└── housing-assessment.js (housing loan logic)
+└── assessment.css (design for all assessments)
+
 ```
 ## Frontend
 
