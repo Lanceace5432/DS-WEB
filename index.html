@@ -1,155 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SkyeBank</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyeBank - Home</title>
 
-<link rel="stylesheet" href="style.css">
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- Font Awesome Icons -->
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-<!-- Navbar -->
-<header>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="./images/SkyeBank Logo copy.webp" alt="SkyeBank Logo">
-            <h2>SkyeBank</h2>
-        </div>
+    <header class="main-header">
+    <a href="index.html" class="logo-container">
+        <img src="images/SkyeBank Logo copy.webp" alt="SkyeBank Logo" class="logo-img">
+        <span class="logo-text">SkyeBank</span>
+    </a>
 
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Services</a></li>
-        </ul>
+    <nav class="nav-links">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="services.html"><i class="fas fa-wallet"></i> Services</a>
     </nav>
-</header>
+    </header>
 
-<!-- Hero Section -->
-<section class="hero">
-
-    <div class="hero-content">
-        <h1>
-            Reach Your <br>
-            Financial Skies
-        </h1>
-
-        <p>
-            Check your loan eligibility in minutes with our smart,
-            secure, and simple process.
-        </p>
-
-        <button id="checkBtn">
-            Check Loan Eligibility
-        </button>
-    </div>
-
-    <div class="hero-card">
-
-        <div class="info-box">
-
-            <div class="info-item">
-                <div class="icon success">
-                    <i class="fa-solid fa-circle-check"></i>
-                </div>
-
-                <div>
-                    <h4>Fast Approval</h4>
-                    <p>Get results in minutes</p>
-                </div>
-            </div>
-
-            <div class="info-item">
-                <div class="icon secure">
-                    <i class="fa-solid fa-shield"></i>
-                </div>
-
-                <div>
-                    <h4>Secure Process</h4>
-                    <p>Your data is protected</p>
-                </div>
-            </div>
-
-            <div class="info-item">
-                <div class="icon analysis">
-                    <i class="fa-solid fa-arrow-trend-up"></i>
-                </div>
-
-                <div>
-                    <h4>Smart Analysis</h4>
-                    <p>Automated eligibility check</p>
-                </div>
-            </div>
-
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                Reach Your <br>
+                Financial Skies
+            </h1>
+            <p>
+                Check your loan eligibility in minutes with our smart, secure, and simple process.
+            </p>
+            <a href="services.html" class="hero-btn">
+                Check Loan Eligibility
+            </a>
         </div>
-    </div>
 
-</section>
+        <div class="hero-card">
+            <div class="info-box">
+                <div class="info-item">
+                    <div class="icon success">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <div>
+                        <h4>Fast Approval</h4>
+                        <p>Get results in minutes</p>
+                    </div>
+                </div>
 
-<!-- Why Choose Section -->
-<section class="features">
+                <div class="info-item">
+                    <div class="icon secure">
+                        <i class="fa-solid fa-shield"></i>
+                    </div>
+                    <div>
+                        <h4>Secure Process</h4>
+                        <p>Your data is protected</p>
+                    </div>
+                </div>
 
+                <div class="info-item">
+                    <div class="icon analysis">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                    <div>
+                        <h4>Smart Analysis</h4>
+                        <p>Automated eligibility check</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section class="features">
     <h2>Why Choose SkyeBank?</h2>
 
     <div class="feature-container">
-
         <div class="feature-card">
-
             <div class="feature-icon">
                 <i class="fa-solid fa-bolt"></i>
             </div>
-
             <h3>Fast Approval</h3>
-
             <p>
-                Get instant eligibility results with our automated
-                eligibility checker system. No waiting, no hassle.
+                Get instant eligibility results with our automated eligibility checker system. 
+                No waiting, no hassle.
             </p>
-
         </div>
 
         <div class="feature-card">
-
             <div class="feature-icon">
-                <i class="fa-solid fa-shield"></i>
+                <i class="fa-solid fa-shield-halved"></i>
             </div>
-
             <h3>Secure Process</h3>
-
             <p>
-                Your personal information is protected with bank-level
-                encryption and security protocols.
+                Your personal information is protected with bank-level encryption and 
+                security protocols.
             </p>
-
         </div>
 
         <div class="feature-card">
-
             <div class="feature-icon">
                 <i class="fa-solid fa-circle-check"></i>
             </div>
-
             <h3>Eligibility Checking</h3>
-
             <p>
-                Know your chances before applying. Our smart checker
-                evaluates your profile accurately.
+                Know your chances before applying. Our smart checker evaluates your profile accurately.
             </p>
-
         </div>
-
     </div>
-
 </section>
 
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>

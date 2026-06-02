@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyeBank - Eligibility Assessment</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assessment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/SkyeBank Logo copy.webp" alt="SkyeBank Logo" class="logo-img">
+                <span class="logo-text">SkyeBank</span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="services.html"><i class="fas fa-wallet"></i> Services</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        
+        <div class="assessment-header" id="progress-header">
+            <h1>Eligibility Assessment</h1>
+            <p id="step-indicator">Step 1 of 4</p>
+            
+            <div class="progress-container">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-fill" style="width: 25%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Start</span>
+                    <span class="progress-percent" id="progress-percent">25% Complete</span>
+                    <span>Complete</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card step-card active" id="step1">
+            <h2>Tell us about yourself</h2>
+            
+            <div class="input-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" placeholder="Enter your full name">
+            </div>
+
+            <div class="input-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" placeholder="Enter your age" min="1">
+            </div>
+
+            <div class="input-group">
+                <label for="employment">Employment Status</label>
+                <select id="employment">
+                    <option value="" disabled selected>Select employment status</option>
+                    <option value="Unemployed">Unemployed</option>
+                    <option value="Full-time">Full-time Employee</option>
+                    <option value="Part-time">Part-time Employee</option>
+                    <option value="Self-Employed">Self-Employed</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="creditScore">Credit Score</label>
+                <input type="number" id="creditScore" placeholder="e.g., 720" min="300" max="850">
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="window.location.href='apply.html'">Back</button>
+                <button class="btn btn-primary" onclick="nextStep(1)">Next</button>
+            </div>
+        </div>
+
+        <div class="card step-card" id="step2">
+            <h2>What is your monthly income?</h2>
+            <p class="subtitle">Please enter your total monthly income before taxes.</p>
+            
+            <div class="input-group mt-xl">
+                <label for="monthlyIncome">Monthly Income (₱)</label>
+                <input type="number" id="monthlyIncome" placeholder="e.g., 25000">
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevStep(2)">Back</button>
+                <button class="btn btn-primary" onclick="nextStep(2)">Next</button>
+            </div>
+        </div>
+
+        <div class="card step-card" id="step3">
+            <h2>Loan Details</h2>
+            
+            <p style="margin-bottom: 1.5rem; color: var(--text-main); font-size: 0.95rem;">
+                <strong>Car Loan</strong> - Interest Rate: 12%
+            </p>
+
+            <div class="input-group">
+                <label for="loanAmount">Loan Amount Requested (₱)</label>
+                <input type="number" id="loanAmount" placeholder="e.g., 50000" oninput="calculateLoan()">
+            </div>
+
+            <div class="input-group">
+                <label for="monthsToPay">Months to Pay</label>
+                <input type="number" id="monthsToPay" placeholder="e.g., 15" oninput="calculateLoan()">
+            </div>
+
+            <div class="summary-box">
+                <h3>Loan Summary</h3>
+                <div class="summary-row">
+                    <span>Loan Amount:</span>
+                    <span class="val-bold" id="sumLoanAmount">₱0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span id="sumInterestLabel">Interest (12%):</span>
+                    <span class="val-bold" id="sumInterestAmount">₱0.00</span>
+                </div>
+                <hr>
+                <div class="summary-row highlight">
+                    <span>Total Loan:</span>
+                    <span class="val-blue" id="sumTotalLoan">₱0.00</span>
+                </div>
+                <div class="summary-row highlight">
+                    <span>Monthly Payment:</span>
+                    <span class="val-blue" id="sumMonthlyPayment">₱0.00</span>
+                </div>
+            </div>
+
+            <div class="requirements-box">
+                <h4>Eligibility Requirements:</h4>
+                <ul id="requirementsList">
+                    <li>Age 21-65 years old</li>
+                    <li>Credit Score ≥ 650</li>
+                    <li>Employment Status ≠ Unemployed</li>
+                    <li id="dtiRequirement">Debt-to-Income Ratio ≤ 40%</li>
+                    <li id="maxMonthsReq">Maximum Months to Pay: 60</li>
+                    <li id="maxLoanReq">Maximum Loan Requested: ₱5,000,000</li>
+                </ul>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevStep(3)">Back</button>
+                <button class="btn btn-primary" onclick="nextStep(3)">Next</button>
+            </div>
+        </div>
+
+        <div class="card step-card" id="step4">
+            <h2>Required Documents</h2>
+            <p class="subtitle">Please ensure you have the following documents ready for your application.</p>
+            
+            <div class="checklist" id="documentChecklist">
+                </div>
+
+            <div class="application-summary-box">
+                <h3>Application Summary</h3>
+                <div class="summary-row"><span>Full Name:</span><span id="appFullName" class="val-bold"></span></div>
+                <div class="summary-row"><span>Age:</span><span id="appAge" class="val-bold"></span></div>
+                <div class="summary-row"><span>Employment:</span><span id="appEmployment" class="val-bold"></span></div>
+                <div class="summary-row"><span>Credit Score:</span><span id="appCreditScore" class="val-bold"></span></div>
+                <div class="summary-row"><span>Monthly Income:</span><span id="appIncome" class="val-bold"></span></div>
+                <div class="summary-row"><span>Loan Amount:</span><span id="appLoan" class="val-bold"></span></div>
+                <div class="summary-row"><span>Monthly Payment:</span><span id="appMonthly" class="val-blue"></span></div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevStep(4)">Back</button>
+                <button class="btn btn-primary" onclick="processAssessment()">Check Eligibility</button>
+            </div>
+        </div>
+
+        <div class="loading-screen" id="loadingScreen">
+            <div class="loading-icon-container">
+                <img src="images/SkyeBank Logo copy.webp" alt="SkyeBank Logo" class="floating-logo">
+            </div>
+            <h2 class="loading-title">SkyeBank</h2>
+            <p class="loading-subtitle">Analyzing your eligibility...</p>
+            
+            <div class="loading-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            
+            <ul class="loading-steps" id="loadingStepsList">
+                <li class="active">Verifying your information</li>
+                <li>Calculating eligibility score</li>
+                <li>Generating results</li>
+            </ul>
+        </div>
+        
+        <div class="results-screen" id="resultsScreen"></div>
+
+    </main>
+
+    <script src="assessment.js"></script>
+</body>
+</html>

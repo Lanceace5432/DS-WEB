@@ -1,0 +1,235 @@
+/* ==========================================================================
+   REQUIREMENTS PAGE STYLES (apply.css)
+   ========================================================================== */
+
+/* ==========================================================================
+   UNIFIED BRAND HEADER & NAVIGATION STYLES
+   ========================================================================== */
+.main-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    
+    /* THE FIX: 0px on top and bottom, 8% on the sides */
+    padding: 0 17%; 
+    
+    /* Optional: You can force a strict height to ensure it stays slim */
+    height: 70px; 
+    
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 100px; 
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0b2545; 
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4a5568; 
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-links a i {
+    color: #4a5568;
+    font-size: 1.1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-links a:hover, 
+.nav-links a:hover i {
+    color: #3b82f6; 
+}
+
+/* ==========================================================================
+   PAGE CONTENT & ANIMATION
+   ========================================================================== */
+body {
+    background-color: #f4f7fc; 
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* This adds the smooth 0.3s Assessment fade-in to the entire block */
+.requirements-wrapper {
+    max-width: 720px;
+    margin: 60px auto;
+    padding: 0 20px;
+    animation: fadeIn 0.3s ease-in-out; /* Matches assessment.css */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.req-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.icon-badge {
+    width: 60px;
+    height: 60px;
+    background-color: #69b5ff; 
+    color: #ffffff;
+    border-radius: 14px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.req-header h1 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #081b3a;
+    margin: 0 0 10px 0;
+}
+
+.req-header .subtitle {
+    font-size: 15px;
+    color: #6b7c96;
+    margin: 0;
+}
+
+.req-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); 
+}
+
+.req-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 40px;
+}
+
+.req-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.check-icon {
+    font-size: 20px;
+    color: #3b82f6; 
+    margin-top: 3px;
+}
+
+.req-text h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #081b3a;
+    margin: 0 0 4px 0;
+}
+
+.req-text p {
+    font-size: 14px;
+    color: #5e6e85;
+    margin: 0;
+}
+
+.note-box {
+    background-color: #eaf5ff;
+    border: 1px solid #bce0ff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 35px;
+}
+
+.note-box p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #334d6e;
+    margin: 0;
+}
+
+/* ==========================================================================
+   NAVIGATION BUTTONS
+   ========================================================================== */
+.action-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-back {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    padding: 16px; /* Matched to the taller Apply Now button */
+    border: 1px solid #d2dbec;
+    border-radius: 8px; /* Sharper corners */
+    background: #ffffff;
+    color: #081b3a; 
+    font-size: 16px;
+    font-weight: 700; /* Bolder letters */
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-back:hover {
+    background: #f8fafc;
+}
+
+.btn-continue {
+    flex: 1.5; 
+    padding: 16px; /* Matched to the taller Apply Now button */
+    border: none;
+    border-radius: 8px; /* Sharper corners */
+    background: #0073e6; /* THE FIX: The deep Apply Now Blue */
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700; /* THE FIX: Bolder letters */
+    cursor: pointer;
+    transition: background 0.2s ease;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-continue:hover {
+    background: #005bb8; /* THE FIX: The dark Apply Now hover blue */
+}
+
+/* Optional safety utility class - keep this if it was already there */
+.button-group button, .continue-btn {
+    background-color: #0073e6;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    text-decoration: none;      
+    display: inline-block;      
+    text-align: center;
+    font-weight: 500;
+}
